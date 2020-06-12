@@ -12,6 +12,11 @@ var RecipeSchema = new Schema({
         required: true,
         unique: true
     },
+    description: {
+        type: String,
+        required: true,
+        unique: true
+    },
     link: {
         type: String,
         required: true,
@@ -19,6 +24,7 @@ var RecipeSchema = new Schema({
     },
     imageUrl: {
         type: String,
+        data: Buffer,
         required: true,
         unique: true
     },
@@ -36,7 +42,7 @@ var RecipeSchema = new Schema({
 });
 
 // Create the article model w/ mongoose
-var Recipes = mongoose.model("Recipes", RecipeSchema);
+var Recipe = mongoose.model("Recipe", RecipeSchema);
 
 // Export
-module.exports = Recipes; // do we need this if we are using index to export?
+module.exports = Recipe;

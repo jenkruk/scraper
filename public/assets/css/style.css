@@ -1,4 +1,4 @@
-.jumbotron .background-image {
+/* .jumbotron .background-image {
     background-image: url("#");
     background-size: cover;
     height: 100%;
@@ -12,7 +12,6 @@ right: 0;
 left: 0;
 z-index: 2;
 background-color: rgba(0, 0, 0, 0.7);
-/* opacity: 0.7; */
 }
 
 .jumbotron {
@@ -32,12 +31,10 @@ background-color: rgba(0, 0, 0, 0.7);
 
 .jumbotron .caption h1 {
     color: white;
-    /* z-index: 3; */
 }
 
 .jumbotron .caption p {
     color: white;
-    /* z-index: 3; */
 }
 
 .my-btn {
@@ -60,4 +57,4 @@ background-color: rgba(0, 0, 0, 0.7);
 
 textarea {
     width: 100%;
-}
+} */
