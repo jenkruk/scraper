@@ -1,21 +1,36 @@
 {{!-- Header space  --}}
 
-<div>
-    <h3 class="card z-depth-3 center-align">Get the latest recipes from Real Simple</h3>
-    <div class="row">
-        <div class="col s3"></div>
-        <h6 class="card z-depth-3 center-align col s6">Click 'Scrape' to get the latest recipes</h6>
-        <a href="http://localhost:3000/scrape">SCRAPE</a>
+<div class="center-align">
+        <div class="col s12 row header center-align valign-wrapper">
+        <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2020%2F05%2F21%2Fstrawberry-season-2000.jpg" alt="strawberryHeader" class="straws col s8">
+        <h3 class="center-align title">Real Simple Recipe Scrape</h3>
     </div>
+    <br><br>
+    <div class="row center-align">
+    <button class="btn" id="scrape">SCRAPE</button>
+    </div>
+    <h6 class="col s6 center-align">Click 'Scrape' to get the latest recipes</h6>
+
+
+<br>
+<div class="container">
+<div class="row center-align">
+    {{#each recipes}}
+    <div class="card horizontal col s12">
+      <div class="card-image col s8">
+        <img src="{{imageUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
+      </div>
+      <div class="card-stacked col s4">
+        <div class="card-content valign-wrapper">
+          <h5>{{title}}</h5>
+        </div>
+        <div class="card-action">
+          <a href="{{link}}" target = "_blank">Go To Recipe</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+</div>
+</div>
 </div>
 
-<div class="row"><div class="col s2">
-    <div class="col s8 left-align">
-        {{#each recipe}}
-            <div class="card-panel">
-                <h4>{{this.title}}</h4>
-                <a href="/seeRecipe/{{this._id}}" class="waves-effect waves-light btn" id="btnSignUp">See Recipe</a>
-            </div>
-        {{/each}}
-    </div>
-</div></div>

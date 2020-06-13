@@ -12,21 +12,18 @@ var RecipeSchema = new Schema({
         required: true,
         unique: true
     },
-    description: {
-        type: String,
-        required: true,
-        unique: true
-    },
+    // description: {
+    //     type: String,
+    //     required: true,
+    // },
     link: {
         type: String,
         required: true,
-        unique: true
     },
     imageUrl: {
         type: String,
         data: Buffer,
         required: true,
-        unique: true
     },
     saved: {
         type: Boolean,
