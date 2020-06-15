@@ -1,46 +1,43 @@
-{{!-- Header space 
+{{!-- Header space  --}}
 
-<div class="row">
-    <h3 class="card">{{title}}</h3>
-    <h5 class="card-panel recipeBody">{{body}}</h5>
+<div class="col s12 row z-depth-3 header center-align valign-wrapper">
+  <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2020%2F05%2F21%2Fstrawberry-season-2000.jpg" alt="strawberryHeader" class="straws col s8">
+  <h3 class="center-align title">Real Simple Recipe Scrape</h3>
 </div>
 
-<div class="row">
-    <div class="col s2"></div>
-    <form action="/comment/{{recipe._id}}" method="POST" class="card-panel col s8">
-        <h5>Comment on this Recipe</h5>
-        <div class="row">
-            <div class="input-field">
-                <i class="material-icons prefix">perm_identity</i>
-                <input type="text" placeholder="Name" name="name" id="icon_prefix" class="validate active">
-            </div>
+<br><br>
 
-            <div class="input-field">
-                <i class="material-icons prefix">comment</i>
-                <input type="text" placeholder="Comment" name-"comment" id="icon_telephone" class="validate active">
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <center><input type="submit" value="Submit" class="btn add-comment-button topnav"></center>
-            </div>
-        </div>
-    </form>
+<div class="row center-align">
+ <button class="btn z-depth-1" id="scraped">SCRAPED!</button>
+  <div class="clearfix"></div>
+<h6 class="col s12 propertyOf row"> All recipes property of
+    <a href="https://www.realsimple.com/food-recipes/browse-all-recipes" target="_blank" class="center-align rsLink"> 
+      Real Simple </a>
+</h6>
 </div>
 
-<div class="row">
-    <div class="col s2"></div>
-    <div class="col s8">
-        <h5>Comments:</h5>
-        {{#if recipe.comment}}
-        {{#each recipe.comment}}
-        <div class="card">
-            <p id="nameComment">{{name}}</p>
-            <p>{{body}}</p>
+<br>
+
+<div class="container">
+<div class="row center-align">
+    {{#each recipes}}
+    <div class="card horizontal col s12">
+      <div class="card-image col s8">
+        <img src="{{imageUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
+      </div>
+      <div class="card-stacked col s4">
+        <div class="card-content valign-wrapper">
+          <h5>{{title}}</h5>
         </div>
-        {{/each}}
-        {{else}}
-        <p>No comments yet.</p>
-        {{/if}}
+        <div class="row">
+            <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
+        </div>
+        <div class="card-action center-align">
+            <a href="#" target = "_blank" id="saveRecipe">&nbspSave Recipe
+            <i class="tiny material-icons">favorite_border</i></a>
+        </div>
+      </div>
     </div>
-</div> --}}
+    {{/each}}
+</div>
+</div>

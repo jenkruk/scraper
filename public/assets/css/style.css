@@ -5,10 +5,8 @@
 /* font-family: 'Raleway', sans-serif; */
 
 .main {
-    /* padding-top: 4vh; */
     color: rgb(44, 44, 44);
     padding-bottom: 2vh;
-    margin-bottom: 20vh;
     overflow: hidden;
 }
 
@@ -28,16 +26,43 @@
     color: darkslategray;
 }
 
-button {
+.scrapeRow {
+    height: 50vh;
+    margin-bottom: 0;
+}
+
+#scrape {
     font-family: 'Playfair Display', serif;
     background-color: #8eab3e !important;
     border: .5px solid lightgrey;
 }
 
-button:hover {
+#scrape:hover {
     background-color: #ab4c3e !important;
 }
 
-button:active {
+#scrape:active {
     font-size: .85rem;
+}
+
+#scraped {
+    background-color: #8eab3e !important;
+    cursor: default;
+}
+
+#scraped:hover {
+    text-decoration: none;
+}
+
+.propertyOf {
+    font-style: italic;
+    margin-top: 2vh;
+}
+
+.rsLink {
+    color: #AB3576;
+}
+
+#saveRecipe {
+    margin: 0 !important;
 }

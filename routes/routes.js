@@ -15,12 +15,12 @@ var Recipe = require("../models/Recipe.js")
 
 // Routes
 
-// router.get("/", function(req, res) {
-//   res.render("index");
-// });
+router.get("/", function(req, res) {
+  res.render("index");
+});
 
 // GET route to scrape the site and write to the database
-router.get("/", function (req, res) {
+router.get("/recipes", function (req, res) {
 
   axios.get("https://www.realsimple.com/food-recipes/browse-all-recipes").then(response => {
     var $ = cheerio.load(response.data);
@@ -62,7 +62,7 @@ router.get("/", function (req, res) {
         // console.log(response.data);
     });
     // res.json({recipes: array});
-    res.render("index", {recipes: array});
+    res.render("recipes", {recipes: array});
     console.log(array);
   });
 });
