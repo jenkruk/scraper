@@ -18,13 +18,8 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
-// Get homepage / index.handlebars 
-router.get("/savedRecipes/", function(req, res) {
-  res.render("saved");
-});
-
 // GET route to scrape the Real Simple Recipe Page
-// Results display in /recipes (recipes.handlebars)
+// Results display in /recipes
 router.get("/recipes", function (req, res) {
 
   axios.get("https://www.realsimple.com/food-recipes/browse-all-recipes").then(response => {
@@ -66,7 +61,6 @@ router.get("/recipes", function (req, res) {
         // console.log(result);
         // console.log(response.data);
     });
-    // res.json({recipes: array});
     res.render("recipes", {recipes: array});
     // console.log(array); 
   });
@@ -74,7 +68,7 @@ router.get("/recipes", function (req, res) {
 
 // Push saved recipes up to the database 
 router.post("/saved/", function (req, res) {
-  console.log("THIS IS THE BODY OF MY REQUEST: ", req.body);
+  // console.log("THIS IS THE BODY OF MY REQUEST: ", req.body);
   db.Recipe.create(req.body)
       .then(function (data) {
           res.sendStatus(200);
@@ -84,14 +78,13 @@ router.post("/saved/", function (req, res) {
       });
 });
 
-// *********** Is this right??? ********** 
-// Render the saved recipes to the /saved route (saved.handlebars)
+// Send the saved recipes to the front
 router.get("/saved/", (req, res) => {
 
   db.Recipe.find()
       .then(function (savedRecipes) {
-        console.log(savedRecipes);
-        res.json(savedRecipes);
+        // console.log(savedRecipes);
+        // res.json(savedRecipes);
         res.render("saved", {savedRecipes: savedRecipes});
       })
       .catch(function (err) {

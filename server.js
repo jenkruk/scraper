@@ -24,9 +24,16 @@ app.use(routes);
 
 
 // Set Handlebars
+var hbs = require('handlebars');
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+
+app.engine("handlebars", exphbs({ 
+    defaultLayout: "main",
+    handlebars: allowInsecurePrototypeAccess (hbs)
+}));
+
 app.set("view engine", "handlebars");
 
 // Make the public folder static

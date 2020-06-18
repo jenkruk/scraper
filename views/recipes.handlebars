@@ -9,7 +9,7 @@
 
 <div class="row center-align">
  <button class="btn z-depth-1" id="scraped">SCRAPED!</button>
-<a class="btn z-depth-1" type="button" href="/saved/" id="saved">View Saved Recipes</a>
+<a class="btn z-depth-1" type="button" href="/saved/" id="viewSaved">View Saved Recipes</a>
   <div class="clearfix"></div>
 <h6 class="col s12 propertyOf row"> All recipes property of
     <a href="https://www.realsimple.com/food-recipes/browse-all-recipes" target="_blank" class="center-align rsLink"> 
@@ -34,8 +34,12 @@
             <a href="{{link}}" data-link="{{link}}" class="link" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-            <a href="" class="saveRecipe">&nbspSave Recipe
-            <i class="tiny material-icons">favorite_border</i></a>
+            <a class="saveRecipe">
+              <i class="tiny material-icons">favorite_border</i>
+              Save Recipe
+            </a>
+            <p class="recipeSaved" id="recipeSaved">RECIPE SAVED!</p>
+            <a class="recipeSaved z-depth-1 btn" id="viewBtn" href="/saved/">View Saved</a>
         </div>
       </div>
     </div>

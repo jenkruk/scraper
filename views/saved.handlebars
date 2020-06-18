@@ -24,7 +24,7 @@
     {{#each savedRecipes}}
     <div class="card horizontal col s12">
       <div class="card-image col s8">
-        <img src="{{imgUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
+        <img src="{{imageUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
       </div>
       <div class="card-stacked col s4">
         <div class="card-content valign-wrapper">
@@ -34,8 +34,8 @@
             <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-              {{!-- <button data-recipeID={{_id}} class="btn btn-info noteBtn">Recipe Notes</button> --}}
-              {{!-- <button data-recipeID={{_id}}" class="btn btn-danger deleteBtn">Delete From Saved</button> --}}
+            <button class="savedActions btn z-depth-1 modal-trigger" data-target="noteModal" id="notes">Recipe Notes</button>
+            <button class="savedActions btn z-depth-1" id="removeBtn">Unsave</button>
         </div>
       </div>
     </div>
@@ -46,8 +46,9 @@
 <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="successMessage" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+          {{#each savedRecipes}}
             <div class="modal-header">
-                <h5 class="modal-title"> Recipe Notes <span id="recipeId"></span></h5>
+                <h5 class="modal-title">{{title}} <span id="recipeId"></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -66,6 +67,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="saveNote">Save Note</button>
             </div>
+          {{/each}}
         </div>
     </div>
 </div>
