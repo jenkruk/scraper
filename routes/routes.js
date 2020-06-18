@@ -84,8 +84,7 @@ router.post("/saved/", function (req, res) {
       });
 });
 
-// ************* NEED A DB FIND ********************* 
-
+// *********** Is this right??? ********** 
 // Render the saved recipes to the /saved route (saved.handlebars)
 router.get("/saved/", (req, res) => {
 
@@ -93,6 +92,7 @@ router.get("/saved/", (req, res) => {
       .then(function (savedRecipes) {
         console.log(savedRecipes);
         res.json(savedRecipes);
+        res.render("saved", {savedRecipes: savedRecipes});
       })
       .catch(function (err) {
           res.json(err);

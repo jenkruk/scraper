@@ -21,10 +21,10 @@
 
 <div class="container">
 <div class="row center-align">
-    {{#each recipes}}
+    {{#each savedRecipes}}
     <div class="card horizontal col s12">
       <div class="card-image col s8">
-        <img src="{{img}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
+        <img src="{{imgUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
       </div>
       <div class="card-stacked col s4">
         <div class="card-content valign-wrapper">
@@ -34,8 +34,8 @@
             <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-              <button data-recipeID={{_id}} class="btn btn-info noteBtn">Recipe Notes</button>
-              <button data-recipeID={{_id}}" class="btn btn-danger deleteBtn">Delete From Saved</button>
+              {{!-- <button data-recipeID={{_id}} class="btn btn-info noteBtn">Recipe Notes</button> --}}
+              {{!-- <button data-recipeID={{_id}}" class="btn btn-danger deleteBtn">Delete From Saved</button> --}}
         </div>
       </div>
     </div>
