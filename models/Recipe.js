@@ -6,16 +6,12 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create new Schema for each Recipe
-var RecipeSchema = new Schema({
+var recipeSchema = new Schema({
     title: {
         type: String,
         required: true,
         unique: true
     },
-    // description: {
-    //     type: String,
-    //     required: true,
-    // },
     link: {
         type: String,
         required: true,
@@ -25,21 +21,14 @@ var RecipeSchema = new Schema({
         data: Buffer,
         required: true,
     },
-    saved: {
-        type: Boolean,
-        default: false,
-        required: true
-    },
-    comment: [
+    note: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Comment"
+            ref: "Note"
         }
     ]
 });
 
 // Create the article model w/ mongoose
-var Recipe = mongoose.model("Recipe", RecipeSchema);
-
-// Export
+var Recipe = mongoose.model("Recipe", recipeSchema);
 module.exports = Recipe;

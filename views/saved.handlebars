@@ -1,0 +1,71 @@
+{{!-- Header space  --}}
+
+<div class="col s12 row z-depth-3 header center-align valign-wrapper">
+  <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2020%2F05%2F21%2Fstrawberry-season-2000.jpg" alt="strawberryHeader" class="straws col s8">
+  <h3 class="center-align title">Real Simple Recipe Scrape</h3>
+</div>
+
+<br><br>
+
+<div class="row center-align">
+  <a class="btn z-depth-1" type="button" href="/recipes" id="home">Back to Recipes</a>
+ <button class="btn z-depth-1" id="saved">SAVED!</button>
+  <div class="clearfix"></div>
+<h6 class="col s12 propertyOf row"> All recipes property of
+    <a href="https://www.realsimple.com/food-recipes/browse-all-recipes" target="_blank" class="center-align rsLink"> 
+      Real Simple </a>
+</h6>
+</div>
+
+<br>
+
+<div class="container">
+<div class="row center-align">
+    {{#each recipes}}
+    <div class="card horizontal col s12">
+      <div class="card-image col s8">
+        <img src="{{img}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
+      </div>
+      <div class="card-stacked col s4">
+        <div class="card-content valign-wrapper">
+          <h5>{{title}}</h5>
+        </div>
+        <div class="row">
+            <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
+        </div>
+        <div class="card-action center-align">
+              <button data-recipeID={{_id}} class="btn btn-info noteBtn">Recipe Notes</button>
+              <button data-recipeID={{_id}}" class="btn btn-danger deleteBtn">Delete From Saved</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+</div>
+</div>
+
+<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="successMessage" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> Recipe Notes <span id="recipeId"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <ul class="list-group list-group-flush recipesAvailable">
+                    </ul>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="noteInput" class="sr-only">Enter Note Here</label>
+                    <textarea class="form-control" id="noteInput" rows="3" placeholder="New Note"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="saveNote">Save Note</button>
+            </div>
+        </div>
+    </div>
+</div>

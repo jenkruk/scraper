@@ -9,6 +9,7 @@
 
 <div class="row center-align">
  <button class="btn z-depth-1" id="scraped">SCRAPED!</button>
+<a class="btn z-depth-1" type="button" href="/savedRecipes/" id="saved">View Saved Recipes</a>
   <div class="clearfix"></div>
 <h6 class="col s12 propertyOf row"> All recipes property of
     <a href="https://www.realsimple.com/food-recipes/browse-all-recipes" target="_blank" class="center-align rsLink"> 
@@ -21,19 +22,19 @@
 <div class="container">
 <div class="row center-align">
     {{#each recipes}}
-    <div class="card horizontal col s12">
+    <div class="recipeCard card horizontal col s12">
       <div class="card-image col s8">
-        <img src="{{imageUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
+        <img class= "img" src="{{imageUrl}}" data-img="{{imageUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
       </div>
       <div class="card-stacked col s4">
         <div class="card-content valign-wrapper">
-          <h5>{{title}}</h5>
+          <h5 class="title" data-title="{{title}}">{{title}}</h5>
         </div>
         <div class="row">
-            <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
+            <a href="{{link}}" data-link="{{link}}" class="link" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-            <a href="#" target = "_blank" id="saveRecipe">&nbspSave Recipe
+            <a href="" class="saveRecipe">&nbspSave Recipe
             <i class="tiny material-icons">favorite_border</i></a>
         </div>
       </div>

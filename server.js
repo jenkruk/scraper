@@ -5,23 +5,23 @@ var express = require ("express");
 var mongoose = require ("mongoose");
 var logger = require("morgan");
 var path = require("path");
-// mongoose.set('useFindAndModify', false);
-// mongoose.set('useCreateIndex', true);
 
 // Initialize Express
 var app = express();
 
 app.use(logger("dev"));
 
+// Configure Middleware
+
+// Parse request
+// Define your routes after you parse your data!!!
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 // Import routes and give the server access to them.
 var routes = require("./routes/routes");
 app.use(routes);
 
-// Configure Middleware
-
-// Parse request
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
 
 // Set Handlebars
 var exphbs = require("express-handlebars");
@@ -36,10 +36,10 @@ app.use(express.static("public"));
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/realSimpledb";
 
 mongoose.connect("mongodb://localhost/realSimpledb");
-var db = mongoose.connection;
 
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", function() {
+
+mongoose.connection.on("error", console.error.bind(console, "connection error: "));
+mongoose.connection.once("open", function() {
     console.log("Connected to Mongoose!");
 });
 
@@ -48,5 +48,5 @@ var PORT = process.env.PORT || 3000;
 
 // Start the server
 app.listen(PORT, function() {
-    console.log("App running on port " + PORT + " ...Click on the link: " +"http://localhost:3000/");
+    console.log("App running on port " + PORT);
 });

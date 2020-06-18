@@ -1,6 +1,7 @@
-// export all of the models
+//Header space
+// Exporting an object containing both modules
 
-// module.exports = {
-//     Recipes: require("./Recipe"),
-//     Comment: require("./Comment")
-// };
+module.exports = {
+    Recipe: require("./Recipe"),
+    Note: require("./Note")
+  };

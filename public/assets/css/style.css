@@ -27,7 +27,7 @@
 }
 
 .scrapeRow {
-    height: 50vh;
+    height: 60vh;
     margin-bottom: 0;
 }
 
@@ -54,15 +54,23 @@
     text-decoration: none;
 }
 
+#saved {
+    background-color: #ab3e57;
+}
+
 .propertyOf {
     font-style: italic;
     margin-top: 2vh;
 }
 
 .rsLink {
-    color: #AB3576;
+    color: #913eab;
 }
 
 #saveRecipe {
     margin: 0 !important;
+}
+
+#home {
+    background-color: #8eab3e;
 }
