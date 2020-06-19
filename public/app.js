@@ -27,7 +27,7 @@ $(document).ready(function () {
         // console.log("save recipe link clicked")
 
         var title = $(this).parent().parent().find(".title").text();
-        console.log("You have chosen: ", title);
+        console.log("You have saved: ", title);
         var link = $(this).parent().parent().find(".link").attr("href");
         var imageUrl = $(this).parent().parent().parent().find(".img").attr("src");
 
@@ -47,21 +47,27 @@ $(document).ready(function () {
     $.ajax({
         url: "/saved/",
         method: "POST",
-        // data: saved
-    }).then(function(data) {
-        console.log("THIS IS WHAT MY AJAX SAVED: ", saved)
-        console.log("TESTING LINE 51: ", data)
-        var alert = 
-        `<div class="alert alert-warning alert-dismissible fade show" role="alert">
-        This recipe has been saved!
-        </div>`
-        $(this).find(".saveRecipe").append(alert);
-        })
-        .fail(function (err) {
+        data: saved
+    }).fail(function (err) {
             console.log(err);
         });
     });
 
-    // console.log("TESTING MY AJAX FROM APP.JS LINE 40: ", saved)
+// ***************** BELOW IS IN TESTING ***************** 
 
+  // Delete recipe
+  $("#removeBtn").on("click", function () {
+    var thisId = $(this).attr("data-id");
+
+    $.ajax({
+      method: "GET",
+      url: "/saved/" + thisId,
+    }).then(function () {
+        location.reload();
+    }).fail(function (err) {
+        console.log(err);
+    });
 });
+
+
+}); // End document ready

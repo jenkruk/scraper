@@ -9,6 +9,7 @@ var path = require("path");
 var axios = require("axios")
 var cheerio = require("cheerio");
 var db = require("../models");
+const Recipe = require("../models/Recipe");
 
 
 // Routes
@@ -91,6 +92,20 @@ router.get("/saved/", (req, res) => {
           res.json(err);
       });
 });
+
+
+// *************** BELOW IS IN TESTING ********************************** 
+
+  // Route for deleting a recipe from the db
+  router.get("/saved/:id", function (req, res) {
+    db.Recipe.deleteOne({ _id: req.params.id })
+      .then(function (dbRecipe) {
+          res.json(dbRecipe);
+      })
+      .catch(function (err) {
+          res.json(err);
+      });
+  });
 
 // Export routes
 module.exports = router;

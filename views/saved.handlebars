@@ -21,6 +21,7 @@
 
 <div class="container">
 <div class="row center-align">
+    {{#if savedRecipes}}
     {{#each savedRecipes}}
     <div class="card horizontal col s12">
       <div class="card-image col s8">
@@ -31,43 +32,52 @@
           <h5>{{title}}</h5>
         </div>
         <div class="row">
-            <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
+          <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-            <button class="savedActions btn z-depth-1 modal-trigger" data-target="noteModal" id="notes">Recipe Notes</button>
-            <button class="savedActions btn z-depth-1" id="removeBtn">Unsave</button>
+          <button class="savedActions btn z-depth-1 modal-trigger" data-id={{this._id}} 
+          data-target="noteModal{{this._id}}" id="notes">Recipe Notes</button>
+        </div>
+        <div class="card-bottom center-align">
+          <button class="savedActions btn z-depth-1" data-id={{this._id}} 
+          id="removeBtn">Unsave this Recipe</button>
         </div>
       </div>
     </div>
     {{/each}}
+    {{else}}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>You have no saved articles.</h4>
+        </div>
+      </div>
+        {{/if}}
 </div>
 </div>
 
 <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="successMessage" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-          {{#each savedRecipes}}
             <div class="modal-header">
-                <h5 class="modal-title">{{title}} <span id="recipeId"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title"><h3>{{this.title}}</h3></h5>
             </div>
             <div class="modal-body">
                 <div class="card">
-                    <ul class="list-group list-group-flush recipesAvailable">
-                    </ul>
-                </div>
-                <br/>
                 <div class="form-group">
-                    <label for="noteInput" class="sr-only">Enter Note Here</label>
-                    <textarea class="form-control" id="noteInput" rows="3" placeholder="New Note"></textarea>
+                    <label for="noteTitle" class="sr-only">Enter Note Title</label>
+                    <textarea class="form-control" id="noteTitle" rows="3" placeholder="Note Title"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="noteInput" class="sr-only">Enter Note Here</label>
+                  <textarea class="form-control" id="noteInput" rows="3" placeholder="New Note"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="saveNote">Save Note</button>
             </div>
-          {{/each}}
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     </div>
 </div>

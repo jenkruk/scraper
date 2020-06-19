@@ -19,6 +19,7 @@
     height: relative;
     width: 102%;
     background-color: #fff8fb;
+    padding-right: 2vw;
 }
 
 .title {
@@ -100,16 +101,16 @@
 #notes {
     background-color: #8eab3e;
     color: white;
-    /* padding: 0 1vw 0 1vw; */
-    /* border: 1px solid lightgrey; */
+    font-size: .75rem;
+    margin: 0 auto !important;
 }
 
 #removeBtn {
     background-color: #ab3e57;
     color: white;
-    /* padding: 0 1vw 0 1vw; */
     margin-left: 1vw;
-    /* border: 1px solid lightgrey; */
+    font-size: .75rem;
+    margin: 0 auto !important;
 }
 
 .modal {
@@ -118,4 +119,8 @@
 
 #saveNote {
     background-color: #8eab3e;
+}
+
+.card-bottom {
+    margin-bottom: 2vh;
 }
