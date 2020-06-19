@@ -56,15 +56,15 @@ $(document).ready(function () {
 // ***************** BELOW IS IN TESTING ***************** 
 
   // Delete recipe
-  $("#removeBtn").on("click", function () {
+  $(".removeBtn").on("click", function () {
     var thisId = $(this).attr("data-id");
-
+    // console.log("/saved/" + thisId)
     $.ajax({
-      method: "GET",
+      method: "DELETE",
       url: "/saved/" + thisId,
     }).then(function () {
         location.reload();
-    }).fail(function (err) {
+    }).catch(function (err) {
         console.log(err);
     });
 });

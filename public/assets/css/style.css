@@ -94,8 +94,8 @@
 #viewBtn {
     background-color: #ab3e57;
     color: white;
-    /* padding: 0 1vw 0 1vw; */
     margin: 0 !important;
+    font-size: .75rem;
 }
 
 #notes {
@@ -105,12 +105,15 @@
     margin: 0 auto !important;
 }
 
-#removeBtn {
+.removeBtn {
     background-color: #ab3e57;
     color: white;
-    margin-left: 1vw;
     font-size: .75rem;
     margin: 0 auto !important;
+}
+
+.removeBtn:hover {
+    background-color: #ab3e57;
 }
 
 .modal {

@@ -97,7 +97,7 @@ router.get("/saved/", (req, res) => {
 // *************** BELOW IS IN TESTING ********************************** 
 
   // Route for deleting a recipe from the db
-  router.get("/saved/:id", function (req, res) {
+  router.delete("/saved/:id", function (req, res) {
     db.Recipe.deleteOne({ _id: req.params.id })
       .then(function (dbRecipe) {
           res.json(dbRecipe);
