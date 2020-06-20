@@ -35,7 +35,7 @@
           <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-          <a class="savedActions z-depth-1 btn recipeNotes" data-id={{this._id}}>Recipe Notes</a>
+          <a class="savedActions z-depth-1 btn recipeNotes modal-trigger" href=".modal1" data-id={{this._id}}>Recipe Notes</a>
         </div>
         <div class="card-bottom center-align">
           <button class="savedActions btn z-depth-1 unsaveBtn" data-id={{this._id}}>Unsave this Recipe</button>
@@ -54,7 +54,7 @@
       </div>
         {{/if}}
 
-    <div class="modal" id="result-modal" tabindex="-1" role="dialog">
+    <div class="modal modal1" id="result-modal" tabindex="-1" role="dialog">
      <div class="modal-dialog" role="document">
          <div class="modal-content notes">
            Hello

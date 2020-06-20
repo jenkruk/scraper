@@ -24,28 +24,8 @@ app.use(routes);
 
 
 // Set Handlebars
-var exphbs = require("express-handlebars");
 var hbs = require('handlebars');
-
-// var handlebarsAsync = require('handlebars-async');
-
-// handlebarsAsync(hbs);
-
-// hbs.registerHelper('async', function(arg1) {
-//     var done = this.async();
-   
-//     setTimeout(function() {
-//       done(null, arg1.toUpperCase())
-//       done();
-//     }, 1000);
-//   });
-   
-//   var tpl = hbs.compile('{{asyncHelper "value"}}');
-   
-//   tpl(function (err, result) {
-//     // result == "VALUE"
-//   });
-
+var exphbs = require("express-handlebars");
 var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 
 app.engine("handlebars", exphbs({ 
@@ -61,7 +41,7 @@ app.use(express.static("public"));
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/realSimpledb";
 
-mongoose.connect("mongodb://localhost/realSimpledb");
+mongoose.connect(MONGODB_URI);
 
 
 mongoose.connection.on("error", console.error.bind(console, "connection error: "));

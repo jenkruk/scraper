@@ -1,7 +1,6 @@
 // Header space 
 
 var mongoose = require("mongoose");
-const { schema } = require("./Note");
 
 // Schema Constructor
 var Schema = mongoose.Schema;
@@ -22,10 +21,12 @@ var recipeSchema = new Schema({
         data: Buffer,
         required: true,
     },
-    note: {
-        type: Schema.Types.ObjectId,
-        ref: "Note"
+    note: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Note"
         }
+    ]
 });
 
 // Create the article model w/ mongoose
