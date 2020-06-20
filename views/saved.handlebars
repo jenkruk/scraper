@@ -8,13 +8,13 @@
 <br><br>
 
 <div class="row center-align">
-  <a class="btn z-depth-1" type="button" href="/recipes" id="home">Back to Recipes</a>
- <button class="btn z-depth-1" id="saved">SAVED!</button>
+  <a class="btn z-depth-1 home" type="button" href="/recipes">Back to Recipes</a>
+  <button class="btn z-depth-1" id="saved">SAVED!</button>
   <div class="clearfix"></div>
-<h6 class="col s12 propertyOf row"> All recipes property of
-    <a href="https://www.realsimple.com/food-recipes/browse-all-recipes" target="_blank" class="center-align rsLink"> 
-      Real Simple </a>
-</h6>
+    <h6 class="col s12 propertyOf row"> All recipes property of
+        <a href="https://www.realsimple.com/food-recipes/browse-all-recipes" target="_blank" class="center-align rsLink"> 
+          Real Simple </a>
+    </h6>
 </div>
 
 <br>
@@ -24,7 +24,7 @@
     {{#if savedRecipes}}
     {{#each savedRecipes}}
     <div class="card horizontal col s12">
-      <div class="card-image col s8">
+      <div class="card-image col s8 valign-wrapper">
         <img src="{{imageUrl}}" style="padding-top: 2vh; padding-bottom: 2vh"/>
       </div>
       <div class="card-stacked col s4">
@@ -35,11 +35,10 @@
           <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-          <button class="savedActions btn z-depth-1 modal-trigger" data-id={{this._id}} 
-          data-target="noteModal{{this._id}}" id="notes">Recipe Notes</button>
+          <a class="savedActions z-depth-1 btn recipeNotes" data-id={{this._id}}>Recipe Notes</a>
         </div>
         <div class="card-bottom center-align">
-          <button class="savedActions btn z-depth-1 removeBtn" data-id={{this._id}}>Unsave this Recipe</button>
+          <button class="savedActions btn z-depth-1 unsaveBtn" data-id={{this._id}}>Unsave this Recipe</button>
         </div>
       </div>
     </div>
@@ -47,36 +46,21 @@
     {{else}}
       <div class="panel panel-default">
         <div class="panel-body">
-          <h4>You have no saved articles.</h4>
+          <h5 class="sad">Well this is sad... you have no saved articles.</h5>
+          </div>
+          <div>
+          <h6>Let's head &nbsp <a class="btn z-depth-1 home" type="button" href="/recipes">Back to Recipes</a> &nbsp to start saving!</h6>
         </div>
       </div>
         {{/if}}
+
+    <div class="modal" id="result-modal" tabindex="-1" role="dialog">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content notes">
+           Hello
+         </div>
+     </div>
+    </div>
 </div>
 </div>
 
-<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="successMessage" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"><h3>{{this.title}}</h3></h5>
-            </div>
-            <div class="modal-body">
-                <div class="card">
-                <div class="form-group">
-                    <label for="noteTitle" class="sr-only">Enter Note Title</label>
-                    <textarea class="form-control" id="noteTitle" rows="3" placeholder="Note Title"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="noteInput" class="sr-only">Enter Note Here</label>
-                  <textarea class="form-control" id="noteInput" rows="3" placeholder="New Note"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="saveNote">Save Note</button>
-            </div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
-</div>

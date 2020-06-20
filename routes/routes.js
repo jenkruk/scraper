@@ -71,30 +71,27 @@ router.get("/recipes", function (req, res) {
 router.post("/saved/", function (req, res) {
   // console.log("THIS IS THE BODY OF MY REQUEST: ", req.body);
   db.Recipe.create(req.body)
-      .then(function (data) {
-          res.sendStatus(200);
-      })
-      .catch(function (err) {
-          res.sendStatus(403);
-      });
+    .then(function (data) {
+        res.sendStatus(200);
+    })
+    .catch(function (err) {
+        res.sendStatus(403);
+    });
 });
 
 // Send the saved recipes to the front
 router.get("/saved/", (req, res) => {
 
   db.Recipe.find()
-      .then(function (savedRecipes) {
-        // console.log(savedRecipes);
-        // res.json(savedRecipes);
-        res.render("saved", {savedRecipes: savedRecipes});
-      })
-      .catch(function (err) {
-          res.json(err);
-      });
-});
-
-
-// *************** BELOW IS IN TESTING ********************************** 
+    .then(function (savedRecipes) {
+      // console.log(savedRecipes);
+      // res.json(savedRecipes);
+      res.render("saved", {savedRecipes: savedRecipes});
+    })
+    .catch(function (err) {
+        res.json(err);
+    });
+  });
 
   // Route for deleting a recipe from the db
   router.delete("/saved/:id", function (req, res) {
@@ -106,6 +103,56 @@ router.get("/saved/", (req, res) => {
           res.json(err);
       });
   });
+
+// *************** BELOW IS IN TESTING ********************************** 
+
+  //route to get a specific recipe and it's notes
+  router.get("/recipes/:id",function(req,res){
+   return db.Recipe.findOne({_id: req.params.id})
+  
+   //have all the associate notes be there too
+   .populate("note")
+   .then(function(recipedb){
+       res.json(recipedb)
+   })
+   .catch(function(err){
+       res.json (err)
+       console.log(err)
+   })
+  })
+
+  //route to allow user to create notes and be saved on the database as well as update it on the recipe collection
+  router.post("/recipes/:id", function(req,res){
+      db.Note.create(req.body)
+      .then(function(Notedb){
+          console.log(Notedb)
+          return db.Recipe.findOneAndUpdate({_id:req.params.id},{$set:{note:Notedb._id}},{new: true});
+      })
+      .then(function(recipedb){
+          console.log(recipedb)
+          res.json(recipedb)
+      })
+      .catch(function(err){
+          res.json(err)
+      })
+  })
+
+  //route to delete a note
+  router.delete("/recipes/:id", function(req,res){
+    db.Note.deleteOne({_id:req.params.id})
+    .then(Notedb=>{
+        console.log("Will this delete the note?")
+        console.log(Notedb)
+        return db.Recipe.updateOne({_id:req.params.id},{$pullAll:{notes:Notedb._id}})
+    }).then(recipeDb=>{
+        console.log("It did delete the note.")
+        console.log(recipeDb)
+    })
+    .catch(err=>{
+        console.log(err)
+    });
+  });
+
 
 // Export routes
 module.exports = router;

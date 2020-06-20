@@ -4,6 +4,10 @@
 /* font-family: 'Playfair Display', serif; */
 /* font-family: 'Raleway', sans-serif; */
 
+* {
+    color: darkslategray;
+}
+
 .main {
     color: rgb(44, 44, 44);
     padding-bottom: 2vh;
@@ -87,43 +91,46 @@
     cursor: pointer;
 }
 
-#home {
-    background-color: #8eab3e;
-}
-
-#viewBtn {
+#viewSavedBtn {
     background-color: #ab3e57;
     color: white;
     margin: 0 !important;
     font-size: .75rem;
 }
 
-#notes {
+.home {
     background-color: #8eab3e;
-    color: white;
-    font-size: .75rem;
-    margin: 0 auto !important;
 }
 
-.removeBtn {
+.home:hover{
+    background-color: #8eab3e;
+}
+
+.recipeNotes {
+    background-color: #8eab3e;
+}
+
+.recipeNotes:hover{
+    background-color: #8eab3e;
+}
+
+.unsaveBtn {
     background-color: #ab3e57;
     color: white;
     font-size: .75rem;
     margin: 0 auto !important;
 }
 
-.removeBtn:hover {
+.unsaveBtn:hover {
     background-color: #ab3e57;
-}
-
-.modal {
-    width: 50% !important;
-}
-
-#saveNote {
-    background-color: #8eab3e;
 }
 
 .card-bottom {
     margin-bottom: 2vh;
+}
+
+.sad {
+    color: #ab3e57;
+    padding-bottom: 5vh;
+    font-style: italic;
 }
