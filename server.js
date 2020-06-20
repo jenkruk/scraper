@@ -24,26 +24,27 @@ app.use(routes);
 
 
 // Set Handlebars
-var hbs = require('handlebars');
 var exphbs = require("express-handlebars");
-var handlebarsAsync = require('handlebars-async');
+var hbs = require('handlebars');
 
-handlebarsAsync(hbs);
+// var handlebarsAsync = require('handlebars-async');
 
-hbs.registerHelper('async', function(arg1) {
-    var done = this.async();
+// handlebarsAsync(hbs);
+
+// hbs.registerHelper('async', function(arg1) {
+//     var done = this.async();
    
-    setTimeout(function() {
-      done(null, arg1.toUpperCase())
-      done();
-    }, 1000);
-  });
+//     setTimeout(function() {
+//       done(null, arg1.toUpperCase())
+//       done();
+//     }, 1000);
+//   });
    
-  var tpl = hbs.compile('{{asyncHelper "value"}}');
+//   var tpl = hbs.compile('{{asyncHelper "value"}}');
    
-  tpl(function (err, result) {
-    // result == "VALUE"
-  });
+//   tpl(function (err, result) {
+//     // result == "VALUE"
+//   });
 
 var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 
