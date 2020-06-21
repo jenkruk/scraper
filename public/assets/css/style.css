@@ -134,3 +134,7 @@
     padding-bottom: 5vh;
     font-style: italic;
 }
+
+#noteBody {
+    width: 80%;
+}

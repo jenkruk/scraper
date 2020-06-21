@@ -106,13 +106,13 @@ router.get("/saved/", (req, res) => {
 
 // *************** BELOW IS IN TESTING ********************************** 
 
-  //route to get a specific recipe and it's notes
+  //route to get a specific recipe
   router.get("/recipes/:id",function(req,res){
    return db.Recipe.findOne({_id: req.params.id})
-  
-   //have all the associate notes be there too
+   //and all it's notes
    .populate("note")
    .then(function(recipedb){
+      console.log("THIS IS LINE 115 OF ROUTES.JS: ", recipedb)
        res.json(recipedb)
    })
    .catch(function(err){
@@ -125,7 +125,7 @@ router.get("/saved/", (req, res) => {
   router.post("/recipes/:id", function(req,res){
       db.Note.create(req.body)
       .then(function(Notedb){
-          console.log(Notedb)
+          console.log("THIS IS LINE 128 OF ROUTES.JS: ", Notedb)
           return db.Recipe.findOneAndUpdate({_id:req.params.id},{$set:{note:Notedb._id}},{new: true});
       })
       .then(function(recipedb){

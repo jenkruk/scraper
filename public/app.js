@@ -2,6 +2,7 @@
 
 $(".saveRecipe").show();
 $(".recipeSaved").hide();
+$(".deletNote").hide();
 
 $(document).ready(function () {
 
@@ -24,7 +25,7 @@ $(document).ready(function () {
     $(".saveRecipe").on("click", function(event) {
         event.preventDefault();
 
-        // console.log("save recipe link clicked")
+        console.log("save recipe link clicked")
 
         var title = $(this).parent().parent().find(".title").text();
         console.log("You have saved: ", title);
@@ -70,10 +71,10 @@ $(document).ready(function () {
 
     //event to allow user to see the notes if there are any
 $(".recipeNotes").on("click", function(){
-    console.log("The Recipe Notes button has been clicked")
+    // console.log("The Recipe Notes button has been clicked");
 
     var id=$(this).data("id")
-    console.log("The Recipe ID is: "+id)
+    // console.log("The Recipe ID is: "+id)
 
     $(".notes").empty();
 
@@ -81,40 +82,37 @@ $(".recipeNotes").on("click", function(){
         url:"/recipes/" + id,
         method:"GET"
     }).then(function(data){
-        console.log("WE ARE TESTING THIS!!!: ", data)
-   $(".notes").append(`
-        <div class="modal">
-        <h5 class="modal-title">${data.title}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-lable="Close">
-        <span aria-hidden="true">&times;</span> </button>
-        </div>
-        <div class="modal-body">
-        <form>
-        <div class="form-group">
-        <label for="text" class="col-form-label">Enter your note(s) here:</label>
-        <textarea class="form-control" id="noteBody"></textarea>
-        </div>
-        </form>
+        // console.log("TESTING: ", data)
+   $(".notes").append(
+        `
+        <h5 class="modal-title" style="padding: 3vh 2vw 3vh 2vw">${data.title}</h5>
+            <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" id="noteBody" placeholder="Add your note here."style="margin-bottom: 3vh; padding-left: 2vw"></textarea>
+                </div>
+            </form>
         <div class="modal-footer">
-        
-        <button type="button" class="btn btn-success saveNote" data-id=${data._id}>Save Note</button>
-        </div>
-        </div>
-   `)
+            <button type="button" class="btn saveNote" data-id=${data._id}>Save Note</button>
+        </div>`)
     if(data.note){
+        $("#noteBody").val(data.note.body);
         $(".modal-footer").append(`
-        <button type="button" class="btn btn-secondary deleteNote" data-id=${data.note._id} data-dismissal="modal">Delete Note</button>
+        <button type="button" class="btn btn deleteNote" data-id=${data.note._id} data-dismissal="modal">Delete Note</button>
         `)
-        console.log(data.note.body)
-        $("#noteBody").val(data.note.body)
+        $(".deletNote").show();
+        // console.log(data.note.body)
+        // $("#noteBody").val(data.note.body)
     }
     });
 
 });
 
-//add a note and save it 
-$(".saveNote").on("click", function(){
-    var id=$(this).data("id");
+//Save a note
+$(".saveNote").on("click", function() {
+    // console.log("Save Note Button has been clicked");
+    var id=$(this).attr("data-id");
+    console.log("Line 115 of app.js: .saveNote has been clicked")
     $.ajax({
         url:"/recipes/" +id,
         method:"Post",
@@ -122,9 +120,10 @@ $(".saveNote").on("click", function(){
             body:$("#noteBody").val()
         }
     }).then(function(data){
-       console.log(data)
-    })
-    $("#noteBody").val("")
+        console.log("Line 123 of app.js: ", data)
+       $(".notes").empty();
+    });
+    $("#noteBody").val("");
 })
 
 //delete a note
