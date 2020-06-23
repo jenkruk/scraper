@@ -127,7 +127,7 @@ router.get("/saved/", (req, res) => {
       db.Note.create(req.body)
       .then(function(Notedb){
           console.log("THIS IS LINE 128 OF ROUTES.JS: ", Notedb)
-          return db.Recipe.findOneAndUpdate({_id:req.params.id},{$set:{note:Notedb._id}},{new: true});
+          return db.Recipe.findOneAndUpdate({_id:req.params.id},{$push:{note:Notedb._id}},{new: true});
       })
       .then(function(recipedb){
           console.log(recipedb)
@@ -138,6 +138,8 @@ router.get("/saved/", (req, res) => {
       })
   })
 
+  // ***************** Below is in testing ****************** 
+
   //route to delete a note
   router.delete("/recipes/:id", function(req,res){
     db.Note.deleteOne({_id:req.params.id})
@@ -146,7 +148,7 @@ router.get("/saved/", (req, res) => {
         console.log(Notedb)
         return db.Recipe.updateOne({_id:req.params.id},{$pullAll:{notes:Notedb._id}})
     }).then(recipeDb=>{
-        console.log("It did delete the note.")
+        console.log("It did delete the note?")
         console.log(recipeDb)
     })
     .catch(err=>{

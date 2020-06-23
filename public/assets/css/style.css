@@ -135,24 +135,40 @@
     font-style: italic;
 }
 
-#noteBody {
+#noteInput {
     width: 80%;
     padding-right: 2vw;
+    padding-bottom: 2vh;
+}
+
+.left-align {
+    margin-left: 8vw;
 }
 
 textarea {
-    width: 300px;
-    height: 150px;
+    margin-top: 2vh;
+    width: 100%;;
+    height: 75px;
   }
 
-  .saveNote {
-    
+  #saveNote {
     background-color: #8eab3e;
-    margin-right: 5vw !important;
+    margin-right: 7vw !important;
     margin-bottom: 5vh !important;
   }
 
   .saveNote:hover {
     background-color: #8eab3e;
-
   }
+
+  .deleteNote {
+      color: white;
+      width: 8%;
+      background-color: #ab4c3e;
+      font-size: .65rem;
+  }
+
+  .deleteNote:hover {
+    color: white;
+    background-color: #ab4c3e;
+}

@@ -55,7 +55,17 @@
         {{/if}}
 
     <div class="modal modal1" id="modal1" tabindex="-1" role="dialog">
-      <div class="notes"></div>
+      <h5 class="modal-title" style="padding: 3vh 2vw 3vh 2vw"></h5>
+      <div class="notes left-align"></div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <textarea class="form-control" id="noteInput" placeholder="Add your notes here."style="margin-bottom: 1vh; padding-left: 2vw"></textarea>
+          </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn" id= "saveNote" data-recipeID=0>Save Note</button>
+        </div>
     </div>
 </div>
 </div>
