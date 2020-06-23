@@ -112,7 +112,7 @@ router.get("/saved/", (req, res) => {
    //and all it's notes
    .populate("note")
    .then(function(recipedb){
-      console.log("THIS IS LINE 115 OF ROUTES.JS: ", recipedb)
+      // console.log("THIS IS LINE 115 OF ROUTES.JS: ", recipedb) **working
        res.json(recipedb)
    })
    .catch(function(err){
@@ -121,7 +121,8 @@ router.get("/saved/", (req, res) => {
    })
   })
 
-  //route to allow user to create notes and be saved on the database as well as update it on the recipe collection
+  //route to allow user to create notes and be saved on the database 
+  //as well as update it on the recipe collection
   router.post("/recipes/:id", function(req,res){
       db.Note.create(req.body)
       .then(function(Notedb){

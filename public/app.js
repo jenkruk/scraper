@@ -2,7 +2,6 @@
 
 $(".saveRecipe").show();
 $(".recipeSaved").hide();
-$(".deletNote").hide();
 
 $(document).ready(function () {
 
@@ -82,25 +81,26 @@ $(".recipeNotes").on("click", function(){
         url:"/recipes/" + id,
         method:"GET"
     }).then(function(data){
-        // console.log("TESTING: ", data)
+        console.log("TESTING: ", data)
    $(".notes").append(
         `
         <h5 class="modal-title" style="padding: 3vh 2vw 3vh 2vw">${data.title}</h5>
-            <div class="modal-body">
-            <form>
-                <div class="form-group">
-                    <textarea class="form-control" id="noteBody" placeholder="Add your note here."style="margin-bottom: 3vh; padding-left: 2vw"></textarea>
-                </div>
-            </form>
+        <div class="oldNotes"></div>
+        <div class="modal-body">
+        <form>
+        <div class="form-group">
+        <textarea class="form-control" id="noteBody" placeholder="Add your notes here."style="margin-bottom: 1vh; padding-left: 2vw"></textarea>
+        </div>
+        </form>
         <div class="modal-footer">
             <button type="button" class="btn saveNote" data-id=${data._id}>Save Note</button>
-        </div>`)
-    if(data.note){
-        $("#noteBody").val(data.note.body);
-        $(".modal-footer").append(`
-        <button type="button" class="btn btn deleteNote" data-id=${data.note._id} data-dismissal="modal">Delete Note</button>
+        </div>
         `)
-        $(".deletNote").show();
+    if(data.note){
+        console.log(data.note[0]);
+        $("#noteBody").val(data.note[0].body);
+        // $(".oldNotes").append(`<textarea class="form-control noteLog" placeholder=${data.note.body} style="margin-bottom: 1vh; padding-left: 2vw"></textarea>
+        // <button type="button" class="btn btn deleteNote" data-id=${data.note[0]._id} data-dismissal="modal">X</button>`)
         // console.log(data.note.body)
         // $("#noteBody").val(data.note.body)
     }
@@ -109,7 +109,7 @@ $(".recipeNotes").on("click", function(){
 });
 
 //Save a note
-$(".saveNote").on("click", function() {
+$(document).on("click", ".saveNote", function() {
     // console.log("Save Note Button has been clicked");
     var id=$(this).attr("data-id");
     console.log("Line 115 of app.js: .saveNote has been clicked")
@@ -120,14 +120,15 @@ $(".saveNote").on("click", function() {
             body:$("#noteBody").val()
         }
     }).then(function(data){
-        console.log("Line 123 of app.js: ", data)
+        console.log("Line 123 of app.js: ", data);
+        $(".newNotes").append($(this.body));
        $(".notes").empty();
     });
     $("#noteBody").val("");
 })
 
 //delete a note
-$(".deletNote").on("click", function(){
+$(document).on("click", ".deleteNote", function(){
  
        var id=$(this).data("id");
         console.log("Delete has been clicked")

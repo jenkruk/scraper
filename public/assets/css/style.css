@@ -137,4 +137,22 @@
 
 #noteBody {
     width: 80%;
+    padding-right: 2vw;
 }
+
+textarea {
+    width: 300px;
+    height: 150px;
+  }
+
+  .saveNote {
+    
+    background-color: #8eab3e;
+    margin-right: 5vw !important;
+    margin-bottom: 5vh !important;
+  }
+
+  .saveNote:hover {
+    background-color: #8eab3e;
+
+  }
