@@ -12,7 +12,7 @@ You can save recipes, write notes on a saved recipe, delete a note from a saved 
 ## Giphy Demo
 ![GIPHY DEMO](./public/assets/images/demo.gif)
 
-## GO TO THIS SCRAPER SITE
+## GO TO SITE
 
 * [Real Simple Recipe Scraper](https://realsimplerecipescraper.herokuapp.com/)
 
