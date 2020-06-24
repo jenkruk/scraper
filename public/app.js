@@ -86,9 +86,12 @@ $(".recipeNotes").on("click", function(){
         $("#saveNote").attr("data-recipeID", data._id);
 
         data.note.forEach(function(e){
-        $(".notes").append(`<p>${e.body}
-        <button class="deleteNote" data-id=${e._id}>Delete</button></p>`)
+        $(".notes").append(
+        `<p>${e.body}
+        <button class="deleteNote" data-id=${e._id}>Delete</button>
+        </p>`)
         })
+
     });
 
 });
@@ -111,6 +114,7 @@ $(document).on("click", "#saveNote", function() {
        $(".notes").empty();
     });
     $("#noteInput").val("");
+    // $("#modal1").refresh();
 })
 
 // ***************** Below is in testing ****************** 
@@ -120,18 +124,20 @@ $(document).on("click", ".deleteNote", function(){
 
        var id=$(this).data("id");
         console.log("Delete has been clicked")
+        $("#modal1").modal("close");
     $.ajax({
         url:"/recipes/" +id,
         method: "DELETE"
        
     }).then(function(){
-        console.log("Successfully deleted note.")
-        $("#noteInput").val("");
+        console.log("Successfully deleted note.");
+        // $("#noteInput").val("");
+        // $(".notes").val("");
+        // location.reload();
 
     }).fail(function(err){
         console.log(err)
     })
 })
-
 
 }); // End document ready

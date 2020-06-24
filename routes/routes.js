@@ -104,8 +104,6 @@ router.get("/saved/", (req, res) => {
       });
   });
 
-// *************** BELOW IS IN TESTING ********************************** 
-
   //route to get a specific recipe
   router.get("/recipes/:id",function(req,res){
    return db.Recipe.findOne({_id: req.params.id})
@@ -126,11 +124,11 @@ router.get("/saved/", (req, res) => {
   router.post("/recipes/:id", function(req,res){
       db.Note.create(req.body)
       .then(function(Notedb){
-          console.log("THIS IS LINE 128 OF ROUTES.JS: ", Notedb)
+          // console.log("THIS IS LINE 128 OF ROUTES.JS: ", Notedb)
           return db.Recipe.findOneAndUpdate({_id:req.params.id},{$push:{note:Notedb._id}},{new: true});
       })
       .then(function(recipedb){
-          console.log(recipedb)
+          // console.log(recipedb) 
           res.json(recipedb)
       })
       .catch(function(err){
@@ -140,15 +138,15 @@ router.get("/saved/", (req, res) => {
 
   // ***************** Below is in testing ****************** 
 
-  //route to delete a note
+  //route to delete a note from the note collection
   router.delete("/recipes/:id", function(req,res){
     db.Note.deleteOne({_id:req.params.id})
     .then(Notedb=>{
         console.log("Will this delete the note?")
         console.log(Notedb)
-        return db.Recipe.updateOne({_id:req.params.id},{$pullAll:{notes:Notedb._id}})
+        return db.Recipe.deleteOne({_id:req.params.id},{$pull:{note:Notedb._id}})
     }).then(recipeDb=>{
-        console.log("It did delete the note?")
+        console.log("Yep, note deleted from the Notes Collection")
         console.log(recipeDb)
     })
     .catch(err=>{
@@ -159,3 +157,4 @@ router.get("/saved/", (req, res) => {
 
 // Export routes
 module.exports = router;
+

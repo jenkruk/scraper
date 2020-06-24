@@ -1,23 +1,22 @@
 # Real Simple Recipe Scraper
 
-This app scrapes the recipes from the Real Simple Recipe page.
+This app scrapes the recipes from the 
+[Real Simple Recipes](https://www.realsimple.com/food-recipes/browse-all-recipes) page.
 
-You can save recipes, and write notes on a saved recipe.
+You can save recipes, write notes on a saved recipe or delete a note from a saved recipe.
 
 You can also delete a recipe from the saved section.
 
-## Click on the SCRAPE button to get the latest Recipes from Real Simple
+### To begin, click on the SCRAPE button to get the latest Recipes from Real Simple
 
 ![SCRAPE](./public/assets/images/scrapePage.png)
-
-
-## GO TO SITE
-
-* [Real Simple Recipe Scraper](https://realsimplerecipescraper.herokuapp.com/)
 
 ## Demo
 ![GIPHY DEMO](./public/assets/images/demo.gif)
 
+## GO TO THIS SCRAPER SITE
+
+* [Real Simple Recipe Scraper](https://realsimplerecipescraper.herokuapp.com/)
 
 ## Built With
 
@@ -34,8 +33,6 @@ You can also delete a recipe from the saved section.
 * [Cheerio](https://cheerio.js.org/)
 * [Mongoose](https://mongoosejs.com/)
 * [Morgan](https://www.npmjs.com/package/morgan)
-
-
 
 ## This project was created by:
 * *Jennifer Kruk* - [github](https://github.com/jenkruk)
