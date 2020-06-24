@@ -3,15 +3,13 @@
 This app scrapes the recipes from the 
 [Real Simple Recipes](https://www.realsimple.com/food-recipes/browse-all-recipes) page.
 
-You can save recipes, write notes on a saved recipe or delete a note from a saved recipe.
-
-You can also delete a recipe from the saved section.
+You can save recipes, write notes on a saved recipe, delete a note from a saved recipe or delete a recipe from the saved recipes section.
 
 ### To begin, click on the SCRAPE button to get the latest Recipes from Real Simple
 
 ![SCRAPE](./public/assets/images/scrapePage.png)
 
-## Demo
+## Giphy Demo
 ![GIPHY DEMO](./public/assets/images/demo.gif)
 
 ## GO TO THIS SCRAPER SITE
