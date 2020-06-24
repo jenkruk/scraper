@@ -136,8 +136,6 @@ router.get("/saved/", (req, res) => {
       })
   })
 
-  // ***************** Below is in testing ****************** 
-
   //route to delete a note from the note collection
   router.delete("/recipes/:id", function(req,res){
     db.Note.deleteOne({_id:req.params.id})

@@ -117,8 +117,6 @@ $(document).on("click", "#saveNote", function() {
     // $("#modal1").refresh();
 })
 
-// ***************** Below is in testing ****************** 
-
 //delete a note
 $(document).on("click", ".deleteNote", function(){
 
