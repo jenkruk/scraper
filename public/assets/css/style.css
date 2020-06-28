@@ -207,4 +207,8 @@ textarea {
         font-size: .75rem;
     }
 
+    .deleteNote {
+        font-size: .5rem;
+    }
+
 }
