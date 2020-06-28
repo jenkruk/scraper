@@ -8,7 +8,7 @@
 <br><br>
 
 <div class="row center-align">
-  <a class="btn z-depth-1 home" type="button" href="/recipes">Back to Recipes</a>
+  <a class="btn z-depth-1 home back" type="button" href="/recipes">Back to Recipes</a>
   <button class="btn z-depth-1" id="saved">SAVED!</button>
   <div class="clearfix"></div>
     <h6 class="col s12 propertyOf row"> All recipes property of
@@ -32,13 +32,13 @@
           <h5 class="eachTitle">{{title}}</h5>
         </div>
         <div class="row">
-          <a href="{{link}}" target = "_blank">GO TO RECIPE</a>
+          <a class = "link" href="{{link}}" target = "_blank">GO TO RECIPE</a>
         </div>
         <div class="card-action center-align">
-          <a class="savedActions z-depth-1 btn recipeNotes modal-trigger" href="#modal1" data-id={{this._id}}>Recipe Notes</a>
+          <a class="savedActions z-depth-1 btn recipeNotes modal-trigger" href="#modal1" data-id={{this._id}}>Notes</a>
         </div>
         <div class="card-bottom center-align">
-          <button class="savedActions btn z-depth-1 unsaveBtn" data-id={{this._id}}>Unsave this Recipe</button>
+          <button class="savedActions btn z-depth-1 unsaveBtn" data-id={{this._id}}>Unsave</button>
         </div>
       </div>
     </div>

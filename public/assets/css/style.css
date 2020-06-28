@@ -186,13 +186,13 @@ textarea {
     }
 
     #scraped,
-    #viewSaved {
+    #viewSaved,
+    .saveRecipe,
+    #saved,
+    .back,
+    .recipeNotes, 
+    .unsaveBtn {
         font-size: .65rem;
-    }
-
-    .saveRecipe {
-        font-size: .75rem;
-        width: 100%;
     }
 
     .card-content {
