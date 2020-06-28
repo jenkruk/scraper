@@ -132,7 +132,6 @@ $(document).on("click", ".deleteNote", function(){
         // $("#noteInput").val("");
         // $(".notes").val("");
         // location.reload();
-
     }).fail(function(err){
         console.log(err)
     })

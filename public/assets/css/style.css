@@ -31,6 +31,10 @@
     color: darkslategray;
 }
 
+.eachTitle {
+    font-family: 'Playfair Display', serif;
+}
+
 .scrapeRow {
     height: 60vh;
     margin-bottom: 0;
@@ -53,6 +57,7 @@
 #scraped {
     background-color: #8eab3e !important;
     cursor: default;
+    margin-bottom: 2vh;
 }
 
 #scraped:hover {
@@ -89,6 +94,7 @@
 #viewSaved {
     background-color: #ab3e57;
     cursor: pointer;
+    margin-bottom: 2vh;
 }
 
 #viewSavedBtn {
@@ -171,4 +177,34 @@ textarea {
   .deleteNote:hover {
     color: white;
     background-color: #ab4c3e;
+}
+
+@media (max-width: 729px) {
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    #scraped,
+    #viewSaved {
+        font-size: .65rem;
+    }
+
+    .saveRecipe {
+        font-size: .75rem;
+        width: 100%;
+    }
+
+    .card-content {
+        padding: 0 !important;
+    }
+
+    .eachTitle {
+        font-size: 1.25rem;
+    }
+
+    .link {
+        font-size: .75rem;
+    }
+
 }
