@@ -141,6 +141,10 @@
     font-style: italic;
 }
 
+.notes {
+    padding-right: 8vw;
+}
+
 #noteInput {
     width: 80%;
     padding-right: 2vw;
@@ -169,7 +173,7 @@ textarea {
 
   .deleteNote {
       color: white;
-      width: 5%;
+      width: 7%;
       background-color: #ab4c3e;
       font-size: .65rem;
   }
@@ -199,7 +203,8 @@ textarea {
         padding: 0 !important;
     }
 
-    .eachTitle {
+    .eachTitle,
+    .modal-title {
         font-size: 1.25rem;
     }
 
@@ -207,8 +212,6 @@ textarea {
         font-size: .75rem;
     }
 
-    .deleteNote {
-        font-size: .5rem;
-    }
+
 
 }
