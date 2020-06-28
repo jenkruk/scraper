@@ -88,7 +88,7 @@ $(".recipeNotes").on("click", function(){
         data.note.forEach(function(e){
         $(".notes").append(
         `<p>${e.body}
-        <button class="deleteNote" data-id=${e._id}>Delete</button>
+        <button class="deleteNote" data-id=${e._id}>X</button>
         </p>`)
         })
 
