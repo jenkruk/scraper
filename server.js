@@ -5,6 +5,7 @@ var express = require ("express");
 var mongoose = require ("mongoose");
 var logger = require("morgan");
 var path = require("path");
+var cors = require('cors');
 
 // Initialize Express
 var app = express();
@@ -17,6 +18,8 @@ app.use(logger("dev"));
 // Define your routes after you parse your data!!!
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+
+app.use(cors())
 
 // Import routes and give the server access to them.
 var routes = require("./routes/routes");
@@ -50,7 +53,7 @@ mongoose.connection.once("open", function() {
 });
 
 // Declare localhost port
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 // Start the server
 app.listen(PORT, function() {
