@@ -20,12 +20,7 @@
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
     "axios": "^0.21.1",
-<<<<<<< HEAD
-    "cheerio": "^1.0.0-rc.5",
-    "cors": "^2.8.5",
-=======
     "cheerio": "^1.0.0-rc.3",
->>>>>>> df6ff10c25295f486e4d0fc5f4ee5f379e308d5b
     "express": "^4.17.1",
     "express-handlebars": "^4.0.6",
     "handlebars": "^4.7.7",
