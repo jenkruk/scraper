@@ -57,5 +57,5 @@ var PORT = process.env.PORT || 8080;
 
 // Start the server
 app.listen(PORT, function() {
-    console.log("App running on port " + PORT);
+    console.log(`App running on port http://localhost:${PORT}`);
 });

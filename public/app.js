@@ -25,12 +25,11 @@ $(document).ready(function () {
     $(".saveRecipe").on("click", function(event) {
         event.preventDefault();
 
-        console.log("save recipe link clicked")
-
-        var title = $(this).parent().parent().find(".title").text();
-        console.log("You have saved: ", title);
+        var title = $(this).parent().parent().find(".eachTitle").text();
         var link = $(this).parent().parent().find(".link").attr("href");
         var imageUrl = $(this).parent().parent().parent().find(".img").attr("src");
+
+        console.log("You have selected: ", title);
 
         var saved = {
         title: title,
@@ -43,7 +42,6 @@ $(document).ready(function () {
 
         // console.log(saved);
 
-        //send saved recipe to the front
         $.ajax({
             url: "/saved/",
             method: "POST",

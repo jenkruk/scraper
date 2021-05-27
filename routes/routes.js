@@ -70,9 +70,13 @@ router.get("/recipes", function (req, res) {
 // Push saved recipes up to the database 
 router.post("/saved/", function (req, res) {
   // console.log("THIS IS THE BODY OF MY REQUEST: ", req.body);
-  db.Recipe.create(req.body)
+  db.Recipe.create({
+    title: req.body.title,
+    link: req.body.link,
+    imageUrl: req.body.imageUrl
+  })
     .then(function (data) {
-        res.sendStatus(200);
+        res.json(data)
     })
     .catch(function (err) {
         res.sendStatus(403);
