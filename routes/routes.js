@@ -86,7 +86,7 @@ router.post("/saved/", function (req, res) {
 // Send the saved recipes to the front
 router.get("/saved/", (req, res) => {
 
-  db.Recipe.find()
+  db.Recipe.find().sort({_id: -1})
     .then(function (savedRecipes) {
       // console.log(savedRecipes);
       // res.json(savedRecipes);

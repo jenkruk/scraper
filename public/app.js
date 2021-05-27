@@ -25,6 +25,9 @@ $(document).ready(function () {
     $(".saveRecipe").on("click", function(event) {
         event.preventDefault();
 
+        $(this).parent().find(".saveRecipe").hide();
+        $(this).parent().find(".recipeSaved").show();
+
         var title = $(this).parent().parent().find(".eachTitle").text();
         var link = $(this).parent().parent().find(".link").attr("href");
         var imageUrl = $(this).parent().parent().parent().find(".img").attr("src");
@@ -36,11 +39,6 @@ $(document).ready(function () {
         link: link,
         imageUrl: imageUrl
         };
-
-        $(this).parent().find(".saveRecipe").hide();
-        $(this).parent().find(".recipeSaved").show();
-
-        // console.log(saved);
 
         $.ajax({
             url: "/saved/",
@@ -98,7 +96,7 @@ $(".recipeNotes").on("click", function(){
 $(document).on("click", "#saveNote", function() {
     // console.log("Save Note Button has been clicked");
     var id=$(this).attr("data-recipeID");
-    console.log("Line 115 of app.js: #saveNote has been clicked")
+    // console.log("Line 115 of app.js: #saveNote has been clicked")
     $("#modal1").modal("close");
     $.ajax({
         url:"/recipes/" +id,
@@ -107,7 +105,7 @@ $(document).on("click", "#saveNote", function() {
         body:$("#noteInput").val()
         }
     }).then(function(data){
-        console.log("Line 123 of app.js: ", data);
+        // console.log("Line 123 of app.js: ", data);
         $(".newNotes").append($(this.body));
        $(".notes").empty();
     });
@@ -119,7 +117,7 @@ $(document).on("click", "#saveNote", function() {
 $(document).on("click", ".deleteNote", function(){
 
        var id=$(this).data("id");
-        console.log("Delete has been clicked")
+        // console.log("Delete has been clicked")
         $("#modal1").modal("close");
     $.ajax({
         url:"/recipes/" +id,
