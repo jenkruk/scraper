@@ -44,16 +44,21 @@ app.use(express.static("public"));
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/realSimpledb";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true ,useCreateIndex: true, useUnifiedTopology: true})
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+})
 
 
 mongoose.connection.on("error", console.error.bind(console, "connection error: "));
 mongoose.connection.once("open", function() {
-    console.log("Connected to Mongoose!");
+    console.log('Connected to Mongoose')
 });
 
 // Declare localhost port
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000
 
 // Start the server
 app.listen(PORT, function() {
